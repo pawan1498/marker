@@ -10,11 +10,19 @@ class LinkController < ApplicationController
     end 
     
     def create
-        @link = Link.new(link_params)
-        @tag = Tag.new(tag_params)
-        @link.save 
-        @tag.save
-        @link.tags << @tag
+        p "--------------------------------------------------"
+        @url = params.require(:url)
+        @link = Link.new(url:@url)
+        @link.save
+
+        for a in 1..3
+         b = "tag"+a.to_s
+         @tag_params = params.require(b)
+         @tag = Tag.new(tag_name:@tag_params)
+         @tag.save
+         @link.tags << @tag
+        end
+        
         redirect_to show_path
     end
     
@@ -22,7 +30,6 @@ class LinkController < ApplicationController
     end 
 
     def search 
-       
     end
 
     def result
@@ -36,7 +43,7 @@ class LinkController < ApplicationController
     end
 
     def tag_params
-        params.require(:tag).permit(:tag_name)
+        params.require(:tag).permit(:tag_name )
     end
 
     def result_param
