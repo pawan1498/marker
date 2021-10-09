@@ -1,0 +1,6 @@
+<h1> for "<%= @t.tag_name %>" tags : links are </h1>
+<% @l.each do |link|%>
+<%= link.url%><br>
+<% end %>
+
+<%= link_to "home", home_path %>

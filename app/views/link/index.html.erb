@@ -1,1 +1,12 @@
-<h1>welcome to link index </h1> 
+<h1>homepage of bookmark</h1> 
+<% @links.each do |link|%>
+    <%= link.url %>
+    
+    <strong>TAGS</strong>
+    <% link.tags.each do |tag|   %>
+    <%= tag.tag_name%>
+    <%end%>
+    <br>
+<%end%>
+<%= link_to "new bookmark" , new_path %>
+<%= link_to "search_link" , search_path%>
