@@ -2,14 +2,11 @@
 <%= form_with(model: @link ) do |form|  %>
    <%= form.label :url%>
    <%= form.text_field :url%>
-   <hr />
+   
+   <%= form.label :tag_list%>
+   <%= form.text_field :tag_list%>
 
-   <% for a in 1..3 do %>
-   <%= fields_for @tag do |tag_form|%>
-      <%= tag_form.label :tag_name%>
-      <%= tag_form.text_field :tag_name%>
-    <% end %>
-    <% end %>
+
     
     <%= form.submit%>
 <% end %>
