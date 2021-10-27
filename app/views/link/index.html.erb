@@ -1,12 +1,37 @@
-<h1>homepage of bookmark</h1> 
-<% @links.each do |link|%>
-    <%= link.url %>
-    
-    <strong>TAGS</strong>
-    <% link.tags.each do |tag|   %>
-    <%= tag.name%>
-    <%end%>
-    <br>
-<%end%>
-<%= link_to "new bookmark" , new_path %>
-<%= link_to "search_link" , search_path%>
+<%= render 'navbar' %>
+
+    <!-- featuring part   -->
+    <div class=" banner-top d-flex justify-content-center align-items-center">
+        <div class="container">
+            <div class="row feature-row">
+                <div class="col-md banner-intro-1 ">
+                    <div class="b-intro-text">
+                        <p>Save Ones, Search Easily </p>
+                        <h5>Manage your bookmark in efficient way!</h5>
+                    </div>
+
+                    <div class="col-lg b-intro-link">
+                        <!-- <a href="https://slashemi.com/emi-calculator.php">GET MARKER FREE</a> -->
+
+                      <%= link_to "Create bookmark" , new_path , :class => "button" %>
+                    </div>
+                </div>
+
+                <div class="col-md banner-intro-2 d-flex justify-content-center align-items-center">
+                    <div class="img-box">
+                
+                        <img src="home-loan-alerts-slashemi.jpg" alt="banner image" class="img-fluid">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="main-gradient-wrap">
+        <!-- <p class="white-space-top"></p> -->
+        <!-- <p class="white-spce"></p> -->
+        <%= image_tag("new_land_gradation_wave.svg", :class => "main-gradient-img") %>
+
+    </div>
+
+<%= render 'footer' %>
