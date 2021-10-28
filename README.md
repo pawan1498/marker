@@ -19,3 +19,5 @@ when you need again
 - https://github.com/mbleigh/acts-as-taggable-on
 - https://www.youtube.com/watch?v=uBa2qs9CFZQ
  
+# bootstrap setup 
+- https://dev.to/somnathpaul/add-bootstrap-4-to-your-ruby-on-rails-6-application-ole
