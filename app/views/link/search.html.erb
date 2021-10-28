@@ -1,7 +1,13 @@
-<div class="" style="margin: 100px;" >
-<%= form_with url: "/result", method: :get do |form| %>
-  <%= form.label :query, "Search for:" %>
-  <%= form.text_field :query %>
-  <%= form.submit "Search" %>
-<% end %>
+<%= render 'navbar' %>
+
+<div class="container p-5 mt-5" style="width: 46%">
+  <h1 class="">SEARCH</h1>
+  <%= form_with url: "/result" , method: :get do |form| %>
+    <div class="mb-3">
+      <%= form.label :query, "Search for:" , class: "form-label" %>
+      <%= form.text_field :query, class: "form-control" %>
+    </div>
+    <%= form.submit "Search" , class: "btn btn-default btn-primary" %>
+  <% end %>
+
 </div>

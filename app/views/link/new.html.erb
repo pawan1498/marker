@@ -1,12 +1,23 @@
-<h1> create new bookmark </h1>
-<%= form_with(model: @link ) do |form|  %>
-   <%= form.label :url%>
-   <%= form.text_field :url%>
-   
-   <%= form.label :tag_list%>
-   <%= form.text_field :tag_list%>
+<%= render 'navbar' %>
+
+<form class="container p-5 mt-5" style="width: 46%;"> 
+    <h1 class="my-5"> create new bookmark </h1>
 
 
-    
-    <%= form.submit%>
-<% end %>
+    <%= form_with(model: @link ) do |form| %>
+
+        <div class="mb-3">
+            <%= form.label :url , "Input Link", class: "form-label" %>
+            <%= form.text_field :url, class: "form-control" %>
+        </div>
+
+        <div class="mb-3">
+            <%= form.label :tag_list , class: "form-label"%>
+            <%= form.text_field :tag_list, class: "form-control"%>
+        </div>
+
+        <%= form.submit "Submit", class: "btn btn-default btn-primary" %>  
+
+        <% end %>
+</form>
+
