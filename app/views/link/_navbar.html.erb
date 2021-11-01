@@ -1,16 +1,17 @@
-<nav class="navbar navbar-expand-md d-flex fixed-top navbar-light bg-white  shadow-bottom">
-    <div class="container-fluid">
-        <a href="https://slashemi.com/index.php" class="navbar-brand">&nbsp;MARKER</a>
+<nav class="navbar navbar-expand-md  fixed-top navbar-light bg-white  shadow-bottom">
 
+    <div class="container-fluid ">
+        <a href="<%= root_path %>" class="navbar-brand brand">&nbsp;MARKER</a>
 
-        <button class="btn btn-md join-btn">
-            <a class=" text-white " href="#">GET MARKER FREE</a>
-        </button>
+        <div class="d-flex align-items-center">
 
-        <button class="btn btn-md join-btn">
-            <a class=" text-white " href="<%= search_path %>">SEARCH</a>
-        </button>
+            <a class="search_path" href="<%= search_path %>">search</a>
+
+            <button class="btn btn-md join-btn">
+                <a class=" text-white " href="#">GET MARKER FREE</a>
+            </button>
+
+        </div>
 
     </div>
-
 </nav>
