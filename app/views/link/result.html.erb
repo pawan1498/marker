@@ -1,6 +1,7 @@
 <h1> for "<%= params[:query]%>" tags : links are </h1>
 <% @l.each do |link|%>
-<%= link.url%><br>
+<a href="<%= link.url%>"> <%= link.url%> </a>
+<br>
 <% end %>
 
 <%= link_to "home", root_path %>
