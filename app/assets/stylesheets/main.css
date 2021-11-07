@@ -20,6 +20,11 @@
 
 /* Navbar */
 
+.btn-pad{
+    padding: 12px 20px !important;
+    
+  }
+
 nav>div {
     padding: 0 35px !important;
 }
@@ -69,7 +74,7 @@ nav div .brand {
 /* feature part start  */
 
 .feature-row {
-    margin-top: 100px !important;
+    margin-top: 50px !important;
 }
 
 .banner-top {

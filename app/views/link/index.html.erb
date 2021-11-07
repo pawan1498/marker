@@ -4,22 +4,22 @@
     <div class=" banner-top d-flex justify-content-center align-items-center">
         <div class="container">
             <div class="row feature-row">
-                <div class="col-md banner-intro-1 ">
+                <div class="col-md banner-intro-1 d-flex justify-content-center align-items-center">
+                    <div> 
                     <div class="b-intro-text">
                         <p>Save Ones, Search Easily </p>
                         <h5>Manage your bookmark in efficient way!</h5>
                     </div>
 
                     <div class="col-lg b-intro-link">
-
                       <%= link_to "Create bookmark" , new_path , :class => "button" %>
-                    </div>
+                    </div></div>
                 </div>
 
                 <div class="col-md banner-intro-2 d-flex justify-content-center align-items-center">
                     <div class="img-box">
-                
-                        <img src="#" alt="banner image" class="img-fluid">
+                        <%= image_tag("banner_vect.png", :class => "img-fluid") %>
+                        
                     </div>
                 </div>
             </div>
