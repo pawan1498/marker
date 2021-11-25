@@ -23,6 +23,8 @@
                 <a href="#" class="btn px-4 m-1 border-0 border-radius-new"
                     style="color: white; background: #4dcac6;">Create Collection</a>
                 <a href="#" class="btn btn-success px-4 m-1 border-0 border-radius-new">Login</a>
+                <%= link_to 'sign up',  new_user_registration_path %>
+                <%= link_to 'sign out', destroy_user_session_path, method: :delete   %>
             </form>
         </div>
     </div>
