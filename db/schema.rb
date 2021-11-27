@@ -10,12 +10,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_10_183358) do
+ActiveRecord::Schema.define(version: 2021_11_08_110624) do
+
+  create_table "groups", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
 
   create_table "links", force: :cascade do |t|
     t.string "url"
+    t.integer "group_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["group_id"], name: "index_links_on_group_id"
   end
 
   create_table "taggings", force: :cascade do |t|
@@ -47,5 +55,6 @@ ActiveRecord::Schema.define(version: 2021_10_10_183358) do
     t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
+  add_foreign_key "links", "groups"
   add_foreign_key "taggings", "tags"
 end
