@@ -9,6 +9,12 @@ class LinkController < ApplicationController
     end 
     
     def create
+        group_name = params[:link][:group_id]
+        @group = Group.new(name: group_name)
+        @group.save
+        params[:link][:group_id] = @group.id
+        
+
         @link = Link.new(link_params)
         @link.save
         redirect_to show_path
@@ -32,7 +38,7 @@ class LinkController < ApplicationController
 
  private 
     def link_params
-        params.require(:link).permit(:url,:tag_list)
+        params.require(:link).permit(:group_id,:url,:tag_list)
     end
 
     def result_param

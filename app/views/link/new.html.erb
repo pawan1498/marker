@@ -5,6 +5,12 @@
 
 
     <%= form_with(model: @link ) do |form| %>
+    
+        <div class="mb-3">
+            <%= form.label :group_id , "group name", class: "form-label" %>
+            <%= form.text_field :group_id, class: "form-control" %>
+        </div>
+
         <div class="mb-3">
             <%= form.label :url , "Input Link", class: "form-label" %>
             <%= form.text_field :url, class: "form-control" %>
