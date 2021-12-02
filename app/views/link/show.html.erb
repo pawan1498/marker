@@ -1,3 +1,21 @@
-<h1> data saving succesfully </h1>
+<div class="container ">
+    <h2> list </h2>
+    <% @group.each do |g|%>
+     <h2> group name :  <%= g.name %> </h2>
+       <% @link = Link.where(:group_id => g) %>
+       <ul>
+       <% @link.each do |l|%>
+         <li> url::  <%= l.url%></li> 
+         <li> tags::   <%= l.tag_list%></li> 
+         <span> created_at:  <%= l.created_at%> </span> <br><br>
+
+       <% end %>
+       </ul>
+       <br><br>
+    <% end %>
+
+</div>
+
+
 <%= link_to "home" , root_path %>
 <%= link_to "search" , search_path %>

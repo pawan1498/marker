@@ -1,6 +1,5 @@
 class LinkController < ApplicationController
   def index
-    @links = Link.all
   end
 
   def new
@@ -27,6 +26,7 @@ class LinkController < ApplicationController
   end
 
   def show
+    @group = Group.all
   end
 
   def search
