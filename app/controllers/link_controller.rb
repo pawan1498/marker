@@ -1,4 +1,5 @@
 class LinkController < ApplicationController
+    before_action :authenticate_user!, only: %i[ new show search ]
 
     def index
         @links = Link.all
