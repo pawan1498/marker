@@ -6,15 +6,11 @@ class LinkController < ApplicationController
 
     def new 
         @link = Link.new
-        @tag = Tag.new
     end 
     
     def create
         @link = Link.new(link_params)
-        @tag = Tag.new(tag_params)
-        @link.save 
-        @tag.save
-        @link.tags << @tag
+        @link.save
         redirect_to show_path
     end
     
@@ -22,21 +18,20 @@ class LinkController < ApplicationController
     end 
 
     def search 
-       
     end
 
     def result
-        @t = Tag.find_by_tag_name(result_param)
-        @l = @t.links
+        tag = []
+        tag = result_param.split(',')
+        @l = Link.tagged_with(tag,  :any => true)
+        tag.each { |x|
+            @l = @l.tagged_with(x, :any => true)
+        }
     end 
 
  private 
     def link_params
-        params.require(:link).permit(:url)
-    end
-
-    def tag_params
-        params.require(:tag).permit(:tag_name)
+        params.require(:link).permit(:url,:tag_list)
     end
 
     def result_param
