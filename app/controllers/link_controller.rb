@@ -18,15 +18,15 @@ class LinkController < ApplicationController
     end 
 
     def search 
+        @tag = ActsAsTaggableOn::Tag.all
+        @tags = @tag.collect(&:name)
+        
     end
 
     def result
         tag = []
         tag = result_param.split(',')
         @l = Link.tagged_with(tag,  :any => true)
-        tag.each { |x|
-            @l = @l.tagged_with(x, :any => true)
-        }
     end 
 
  private 

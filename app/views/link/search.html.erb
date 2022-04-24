@@ -2,12 +2,47 @@
 
 <div class="container p-5 mt-5" style="width: 46%">
   <h1 class="">SEARCH</h1>
-  <%= form_with url: "/result" , method: :get do |form| %>
+  <%= form_with url: "/result" , method: :get, html: { autocomplete: "off" } do |form| %>
     <div class="mb-3">
       <%= form.label :query, "Search for:" , class: "form-label" %>
-      <%= form.text_field :query, class: "form-control" %>
+      <%= form.text_field :query, class: "form-control", id: "input" %>
+      <div id="autocom-box">
+        
+      </div>
     </div>
     <%= form.submit "Search" , class: "btn btn-default btn-primary" %>
   <% end %>
-
+<%# <%= @tags %> 
 </div>
+
+<script>
+    var tag = <%= raw @tags %>;
+    console.log(tag);
+    const inputbox = document.getElementById("input")
+    const suggBox = document.getElementById("autocom-box");
+
+
+    inputbox.onkeyup =(e) =>{
+      let user_data = e.target.value;
+
+      let emptyarray = []; 
+      if(user_data){
+        emptyarray =  tag.filter((data)=> {
+          return data.toLocaleLowerCase().startsWith(user_data.toLocaleLowerCase());
+        });
+        console.log(emptyarray);
+        showSuggestions(emptyarray);
+      }
+    }
+    function showSuggestions(list){
+    let listData;
+    if(!list.length){
+        userValue = inputBox.value;
+        listData = `<li>${userValue}</li>`;
+    }else{
+      listData = list.join(', ');
+    }
+    console.log(listData)
+    suggBox.innerHTML = listData;
+}
+</script>
