@@ -105,7 +105,8 @@ nav div .brand {
     letter-spacing: -1px;
 }
 
-.b-intro-text>h5, .b-intro-text>h6 {
+.b-intro-text>h5,
+.b-intro-text>h6 {
     color: #999;
     margin-bottom: 20px;
 }
@@ -146,7 +147,7 @@ nav div .brand {
 
 .main-gradient-img {
     width: 100%;
-    background: linear-gradient( 31deg, #75efd9, #58b0de, #75efd9, #58b0de);
+    background: linear-gradient(31deg, #75efd9, #58b0de, #75efd9, #58b0de);
     background-size: 500% 200%;
     -webkit-animation: main-gradient 12s ease infinite;
     animation: main-gradient 12s ease infinite;
@@ -167,15 +168,19 @@ nav div .brand {
     transform: scale(1.06) !important;
 }
 
-.why-slashemi .card-body .card-title, .card-subtitle, .card-text {
+.why-slashemi .card-body .card-title,
+.card-subtitle,
+.card-text {
     color: white;
 }
 
-.why-slashemi .card-body:hover .card-title, .why-slashemi .card-body:hover i {
+.why-slashemi .card-body:hover .card-title,
+.why-slashemi .card-body:hover i {
     color: #4dcac6;
 }
 
-.why-slashemi .card-body:hover .card-subtitle, .why-slashemi .card-body:hover .card-text {
+.why-slashemi .card-body:hover .card-subtitle,
+.why-slashemi .card-body:hover .card-text {
     color: #303841;
 }
 
@@ -244,9 +249,11 @@ nav div .brand {
     .join-btn {
         margin: 0 10px 0 15px;
     }
+
     nav>div>a {
         margin-left: 10px;
     }
+
     .features-row-2 {
         flex-direction: row-reverse;
     }
@@ -256,9 +263,29 @@ nav div .brand {
     nav>div>a {
         margin-left: 30px;
     }
+
     .join-btn {
         margin: 0 30px 0 15px;
     }
+}
+
+
+
+/* Login page  */
+
+.login-cont{
+    min-height: calc(100vh - 67px);
+}
+
+.login-cont .row{
+    height: 100%;
+
+}
+.login-cont .row .col1{
+   background-color: white;
+}
+.login-cont .row .col2{
+    background-color: #f3f4f8;
 }
 
 /* footer */
