@@ -10,7 +10,7 @@ class LinkController < ApplicationController
     end 
     
     def create
-        @link = Link.new(link_params)
+        @link = Link.new(link_params.merge(user_id: current_user.id))
         @link.save
         redirect_to show_path
     end
@@ -24,7 +24,7 @@ class LinkController < ApplicationController
     def result
         tag = []
         tag = result_param.split(',')
-        @l = Link.tagged_with(tag,  :any => true)
+        @l = current_user.links.tagged_with(tag,  :any => true)
         tag.each { |x|
             @l = @l.tagged_with(x, :any => true)
         }
