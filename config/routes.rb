@@ -10,4 +10,5 @@ Rails.application.routes.draw do
   get '/show' ,to: "link#show"
   get '/search', to:"link#search"
   get 'result',to:"link#result"
+  get '/autocomplete', to:"link#autocomplete"
 end

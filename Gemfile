@@ -56,3 +56,5 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem 'acts-as-taggable-on'
 gem 'pg'
 gem 'devise'
+gem 'jquery-rails'
+gem 'pry'
