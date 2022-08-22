@@ -3,7 +3,7 @@ class LinkController < ApplicationController
 
 	def index
 		@links = Link.all
-	end65
+	end
 
 	def new
 		@link = Link.new
