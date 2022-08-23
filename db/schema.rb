@@ -12,6 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2021_11_08_110624) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "groups", force: :cascade do |t|
     t.string "name"
     t.datetime "created_at", precision: 6, null: false
@@ -26,7 +29,7 @@ ActiveRecord::Schema.define(version: 2021_11_08_110624) do
     t.index ["group_id"], name: "index_links_on_group_id"
   end
 
-  create_table "taggings", force: :cascade do |t|
+  create_table "taggings", id: :serial, force: :cascade do |t|
     t.integer "tag_id"
     t.string "taggable_type"
     t.integer "taggable_id"
@@ -47,7 +50,7 @@ ActiveRecord::Schema.define(version: 2021_11_08_110624) do
     t.index ["tenant"], name: "index_taggings_on_tenant"
   end
 
-  create_table "tags", force: :cascade do |t|
+  create_table "tags", id: :serial, force: :cascade do |t|
     t.string "name"
     t.datetime "created_at"
     t.datetime "updated_at"

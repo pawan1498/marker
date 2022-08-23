@@ -21,3 +21,6 @@ when you need again
  
 # bootstrap setup 
 - https://dev.to/somnathpaul/add-bootstrap-4-to-your-ruby-on-rails-6-application-ole
+
+# postgres setup 
+- https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres
