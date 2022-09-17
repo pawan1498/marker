@@ -33,3 +33,6 @@ when you need again
 
 # postgres setup 
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres
+
+# Device confirmable 
+- https://web-crunch.com/posts/extending-devise-confirmation-emails  (YOUTUBE)
