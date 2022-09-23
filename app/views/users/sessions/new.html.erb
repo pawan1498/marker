@@ -1,115 +1,133 @@
- <%= render "link/navbar"%>
- <!-- <div class=" login-cont">
-  <div class="row">
-    <div class="col-md col1">
-      <h2 class="py-2 login">Log in</h2>
-
-      <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="form-group">
-        <%= f.label :email %><br />
-        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-      </div>
-
-      <div class="form-group">
-        <%= f.label :password %><br />
-        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
-      </div>
-
-      <% if devise_mapping.rememberable? %>
-        <div class="form-group form-check">
-          <%= f.check_box :remember_me, class: "form-check-input" %>
-          <%= f.label :remember_me, class: "form-check-label" %>
+<div class="container col-xl-10 col-xxl-8 pt-1 px-4 pt-md-5 pt-4">
+    <div class="row align-items-center g-lg-5 home-hero">
+        <div class="col-lg-7 text-lg-start py-3 mb-5">
+            <h1 class="display-6 fw-bold lh-1 mb-4 pb-3 c-green">Bookmark With Style</h1>
+            <p class="col-lg-10 fs-5 text-secondary p-0">Presenting You a new way of bookmark and organsing your
+                links. Create a whole
+                library of links with tags.
+            </p>
+						<%= image_tag("hero2.png", :class => "img-fluid mt-4", :style => "width: 400px") %>	
         </div>
-      <% end %>
 
-      <div class="actions">
-        <%= f.submit "Log in", class: "btn btn-primary" %>
-      </div>
-      <% end %>
-      <div class="d-flex mt-4">
-        <%= render "devise/shared/links"%>
-      </div>
-    </div>
+        <div class="col-md-10 col-lg-5 p-0">
 
-    <div class="col-md col2 p-5  "></div>
-  </div>
-</div> 
--->
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab-login">
+                  <%= form_for(resource, as: resource_name,:html => {:class => 'border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float' , :id => 'login-form'}, url: session_path(resource_name)) do |f| %>
 
-<section class="vh-100">
-  <div class="container-fluid h-custom">
-    <div class="row d-flex justify-content-center align-items-center h-100">
-      <div class="col-md-9 col-lg-6 col-xl-5">
-        <img src="https://mdbcdn.b-cdn.net/img/Photos/new-templates/bootstrap-login-form/draw2.webp"
-          class="img-fluid" alt="Sample image">
-      </div>
-      <div class="col-md-8 col-lg-6 col-xl-4 offset-xl-1">
-        <%# <form> %>
-        <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+                    <div class="w-100 d-flex justify-content-between mb-3"> 
+                        <p class="h3 fw-light mb-4">Login</p>
+                        <p class="social-media d-flex">
+                            <a href="#"
+                                class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                    class="fa fa-facebook"></span></a>
+                            <a href="#"
+                                class="social-icon d-flex align-items-center justify-content-center"><span
+                                    class="fa fa-twitter"></span></a>
+                        </p>
+                    </div>
 
-          <div class="d-flex flex-row align-items-center justify-content-center justify-content-lg-start">
-            <p class="lead fw-normal mb-0 me-3">Sign in with</p>
-            <button type="button" class="btn btn-info btn-floating mx-2 ml-1 ">
-              <i class="fa-brands fa-facebook"></i>
-            </button>
+                    <div class="float-wrap">
+                      <%= f.email_field :email, :id => 'email' %>
+                      <%= f.label :Email_Address %><br />
+                    </div>
 
-            <button type="button" class="btn btn-info btn-floating mx-2">
-              <i class="fa-brands fa-twitter"></i>
-            </button>
+                    <div class="float-wrap">
+                      <%= f.password_field :password%>
+                      <%= f.label :password %><br />
+                    </div>
 
-            <button type="button" class="btn btn-info btn-floating mx-2">
-              <i class="fa-brands fa-linkedin fab"></i>
-            </button>
-          </div>
+                    <% if devise_mapping.rememberable? %>
+                      <div class="d-flex justify-content-between">
+                        <div class="wrap d-flex align-items-center">
+                          <%= f.check_box :remember_me, id: "remember_me" %>
+                          <%= f.label :remember_me, class: "ms-2 text-secondary mb-0 font-s" %>
+                        </div>
+                        <a href="#"><small>Forgot Password?</small></a>
+                        <%# <small><%= link_to 'Forgot Password?', %></small>
+                        
+                      </div>
+                    <% end %>
+                    <br><br>
+                    <%= f.submit "Log in", class: "btn b-green w-100 py-2" %><br><br>
+                    <div class="d-flex ">
+                        <p class="text-center mb-0">Not a member?</p>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a id="signin_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                    onclick="change_form(this)" href="#tab-signup">Sign up</a>
+                            </li>
+                        </ul>
+                    </div> 
+                  <% end %>
+                </div>
+                <div class="tab-pane fade" id="tab-signup">
+                    <form action="#" method="POST"
+                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="signup-form">
+                        <div class="w-100 d-flex justify-content-between mb-3">
+                            <p class="h3 fw-light mb-4">Sign Up</p>
+                            <p class="social-media d-flex">
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                        class="fa fa-facebook"></span></a>
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-twitter"></span></a>
+                            </p>
+                        </div>
 
-          <div class="divider d-flex align-items-center my-4">
-            <p class="text-center fw-bold mx-3 mb-0">Or</p>
-          </div>
+                        <div class="float-wrap">
+                            <input type="email" id="s_email" name="s_email" required>
+                            <label>&nbsp;Email Address&nbsp;</label>
+                        </div>
+                        <div class="float-wrap">
+                            <input type="password" id="s_password" name="s_password" required>
+                            <label>&nbsp;Enter Password&nbsp;</label>
+                        </div>
 
-          <!-- Email input -->
-          <div class="form-outline mb-4">
-            <%# <input type="email" id="form3Example3" class="form-control form-control-lg"
-              placeholder="Enter a valid email address" />  %>
-            <%= f.label :email ,class: "form-label"%>
-            <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control form-control-lg", placeholder: "Enter a valid email address",id: "form3Example3" %>
-            
-             <%# <label class="form-label" for="form3Example3">Email address</label>  %>
-          </div>
+                        <div id="confirm_pass_inp" class="float-wrap">
+                            <input type="password" id="c_password" name="c_password" required>
+                            <label>&nbsp;Confirm Password&nbsp;</label>
+                        </div>
 
-          <!-- Password input -->
-          <div class="form-outline mb-3">
-            <%# <input type="password" id="form3Example4" class="form-control form-control-lg"
-              placeholder="Enter password" />
-            <label class="form-label" for="form3Example4">Password</label> %>
-            <%= f.label :password, class: "form-label"%>
-            <%= f.password_field :password, autocomplete: "current-password", class: "form-control form-control-lg", placeholder: "Enter password" %>
-
-          </div>
-
-          <div class="d-flex justify-content-between align-items-center">
-            <!-- Checkbox -->
-            <div class="form-check mb-0">
-              <input class="form-check-input me-2" type="checkbox" value="" id="form2Example3" />
-              <label class="form-check-label" for="form2Example3">
-                Remember me
-              </label>
+                        <div class="d-flex justify-content-between">
+                            <div class="wrap d-flex align-items-center">
+                                <input type="checkbox" name="agree_policy" id="agree_policy" checked>
+                                <label for="agree_policy" class="ms-2 text-secondary">
+                                    <small>I accept the
+                                        <a href="#"><small>Terms of Use</small></a>
+                                        &
+                                        <a href="#"><small>Privacy Policy.</small></a>
+                                    </small>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" value="Sign Up" class="btn b-green w-100 py-2"> <br> <br>
+                        <div class="d-flex ">
+                            <p class="text-center mb-0">Already a member?</p>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                        href="#tab-login" onclick="change_form(this)">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
+                </div>
             </div>
-          </div>
-
-          <div class="text-center text-lg-start mt-4 pt-2">
-            <%# <button type="button" class="btn btn-primary btn-lg"
-              style="padding-left: 2.5rem; padding-right: 2.5rem;">Login</button> %>
-
-            <%= f.submit "Log in", class: "btn btn-info btn-lg", style: "padding-left: 2.5rem; padding-right: 2.5rem;" %>
-            
-            <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <%= render "devise/shared/links"%> </p>
-             
-            
-          </div>
-
-        <%end%>
-      </div>
+        </div>
     </div>
-  </div>
- 
-</section>  
+</div>
+<%# <script src="assets/server.js"></script> %>
+
+<script>
+    function change_form(obj) {
+        var form_type = $('#' + obj.id);
+        (form_type.attr('href') == '#signin_tab') ?
+            form_type.removeClass('active') :
+            form_type.removeClass('active');
+    }
+</script>
+
+
