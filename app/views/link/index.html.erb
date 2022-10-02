@@ -1,38 +1,130 @@
-<%= render 'navbar' %>
+<div class="container col-xl-10 col-xxl-8 pt-1 px-4 pt-md-5 pt-4">
+    <div class="row align-items-center g-lg-5 home-hero">
+        <div class="col-lg-7 text-lg-start py-3 mb-5">
+            <h1 class="display-6 fw-bold lh-1 mb-4 pb-3 c-green">Bookmark With Style</h1>
+            <p class="col-lg-10 fs-5 text-secondary p-0">Presenting You a new way of bookmark and organsing your
+                links. Create a whole
+                library of links with tags.
+            </p>
+						<%= image_tag("hero2.png", :class => "img-fluid mt-4", :style => "width: 400px") %>	
+        </div>
 
-    <!-- featuring part   -->
-    <div class=" banner-top d-flex justify-content-center align-items-center">
-        <div class="container">
-            <div class="row feature-row">
-                <div class="col-md banner-intro-1 d-flex justify-content-center align-items-center">
-                    <div> 
-                    <div class="b-intro-text">
-                        <p>Save Ones, Search Easily </p>
-                        <h5>Manage your bookmark in efficient way!</h5>
-                    </div>
+        <div class="col-md-10 col-lg-5 p-0">
 
-                    <div class="col-lg b-intro-link">
-                      <%= link_to "Create bookmark" , new_path , :class => "button " %>
-                      <%= link_to "Search" , search_path , :class => "button ml-1" %>
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab-login">
+                    <form action="/users/sign_in" method="POST"
+                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="login-form">
+                        <div class="w-100 d-flex justify-content-between mb-3">
+                            <p class="h3 fw-light mb-4">Login</p>
+                            <p class="social-media d-flex">
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                        class="fa fa-facebook"></span></a>
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-twitter"></span></a>
+                            </p>
+                        </div>
 
-                    </div></div>
+                        <div class="float-wrap">
+                            <input type="email" id="email" name="email" required>
+                            <label>&nbsp;Email Address&nbsp;</label>
+                        </div>
+
+                        <div class="float-wrap">
+                            <input type="password" id="password" name="password" required>
+                            <label>&nbsp;Enter Password&nbsp;</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="wrap d-flex align-items-center">
+                                <input type="checkbox" name="remember_me" id="remember_me" checked>
+                                <label for="remember_me" class="ms-2 text-secondary mb-0"><small>Remember
+                                        Me</small></label>
+                            </div>
+                            <a href="#"><small>Forgot Password?</small></a>
+                        </div>
+                        <br>
+                        <input type="submit" value="login" class="btn b-green w-100 py-2"> <br> <br>
+                        <div class="d-flex ">
+                            <p class="text-center mb-0">Not a member?</p>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a id="signin_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                        onclick="change_form(this)" href="#tab-signup">Sign up</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
+                <div class="tab-pane fade" id="tab-signup">
+                    <form action="#" method="POST"
+                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="signup-form">
+                        <div class="w-100 d-flex justify-content-between mb-3">
+                            <p class="h3 fw-light mb-4">Sign Up</p>
+                            <p class="social-media d-flex">
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                        class="fa fa-facebook"></span></a>
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-twitter"></span></a>
+                            </p>
+                        </div>
 
-                <div class="col-md banner-intro-2 d-flex justify-content-center align-items-center">
-                    <div class="img-box">
-                        <%= image_tag("banner_vect.png", :class => "img-fluid") %>
-                        
-                    </div>
+                        <div class="float-wrap">
+                            <input type="email" id="s_email" name="s_email" required>
+                            <label>&nbsp;Email Address&nbsp;</label>
+                        </div>
+                        <div class="float-wrap">
+                            <input type="password" id="s_password" name="s_password" required>
+                            <label>&nbsp;Enter Password&nbsp;</label>
+                        </div>
+
+                        <div id="confirm_pass_inp" class="float-wrap">
+                            <input type="password" id="c_password" name="c_password" required>
+                            <label>&nbsp;Confirm Password&nbsp;</label>
+                        </div>
+
+                        <div class="d-flex justify-content-between">
+                            <div class="wrap d-flex align-items-center">
+                                <input type="checkbox" name="agree_policy" id="agree_policy" checked>
+                                <label for="agree_policy" class="ms-2 text-secondary">
+                                    <small>I accept the
+                                        <a href="#"><small>Terms of Use</small></a>
+                                        &
+                                        <a href="#"><small>Privacy Policy.</small></a>
+                                    </small>
+                                </label>
+                            </div>
+                        </div>
+                        <br>
+                        <input type="submit" value="Sign Up" class="btn b-green w-100 py-2"> <br> <br>
+                        <div class="d-flex ">
+                            <p class="text-center mb-0">Already a member?</p>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                        href="#tab-login" onclick="change_form(this)">Login</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
     </div>
+</div>
+<%# <script src="assets/server.js"></script> %>
 
-    <div class="main-gradient-wrap">
-        <!-- <p class="white-space-top"></p> -->
-        <!-- <p class="white-spce"></p> -->
-        <%= image_tag("new_land_gradation_wave.svg", :class => "main-gradient-img") %>
+<script>
+    function change_form(obj) {
+        var form_type = $('#' + obj.id);
+        (form_type.attr('href') == '#signin_tab') ?
+            form_type.removeClass('active') :
+            form_type.removeClass('active');
+    }
+</script>
 
-    </div>
 
-<%= render 'footer' %>

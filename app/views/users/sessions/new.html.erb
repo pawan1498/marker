@@ -62,8 +62,8 @@
                   <% end %>
                 </div>
                 <div class="tab-pane fade" id="tab-signup">
-                    <form action="#" method="POST"
-                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="signup-form">
+                     <%= form_for(resource, as: resource_name,:html => {:class => 'border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float' , :id => 'login-form'}, url: registration_path(resource_name)) do |f| %>
+                    <%# <form action="#" method="POST" %>
                         <div class="w-100 d-flex justify-content-between mb-3">
                             <p class="h3 fw-light mb-4">Sign Up</p>
                             <p class="social-media d-flex">
@@ -77,33 +77,18 @@
                         </div>
 
                         <div class="float-wrap">
-                            <input type="email" id="s_email" name="s_email" required>
-                            <label>&nbsp;Email Address&nbsp;</label>
+													<%= f.email_field :email, :id => 'email' %>
+													<%= f.label :Email_Address %><br />
                         </div>
+
                         <div class="float-wrap">
-                            <input type="password" id="s_password" name="s_password" required>
-                            <label>&nbsp;Enter Password&nbsp;</label>
+													<%= f.password_field :password%>
+													<%= f.label :password %><br />	
                         </div>
 
-                        <div id="confirm_pass_inp" class="float-wrap">
-                            <input type="password" id="c_password" name="c_password" required>
-                            <label>&nbsp;Confirm Password&nbsp;</label>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <div class="wrap d-flex align-items-center">
-                                <input type="checkbox" name="agree_policy" id="agree_policy" checked>
-                                <label for="agree_policy" class="ms-2 text-secondary">
-                                    <small>I accept the
-                                        <a href="#"><small>Terms of Use</small></a>
-                                        &
-                                        <a href="#"><small>Privacy Policy.</small></a>
-                                    </small>
-                                </label>
-                            </div>
-                        </div>
+                      
                         <br>
-                        <input type="submit" value="Sign Up" class="btn b-green w-100 py-2"> <br> <br>
+												<%= f.submit "Sign Up", class: "btn b-green w-100 py-2" %><br><br>
                         <div class="d-flex ">
                             <p class="text-center mb-0">Already a member?</p>
                             <ul class="nav justify-content-center">
@@ -113,7 +98,8 @@
                                 </li>
                             </ul>
                         </div>
-                    </form>
+												
+                    <%end%>
                 </div>
             </div>
         </div>
