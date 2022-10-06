@@ -1,6 +1,5 @@
 class LinkController < ApplicationController
-	before_action :authenticate_user!, only: %i[ new show search ]
-
+	before_action :authenticate_user!, only: %i[ new show search index]
 	def index
 		@links = Link.all
 	end
@@ -46,6 +45,7 @@ class LinkController < ApplicationController
 	end
 
 private
+
 	def link_params
 		params.require(:link).permit(:url,:tag_list)
 	end
