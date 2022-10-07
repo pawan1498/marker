@@ -2,6 +2,7 @@ class LinkController < ApplicationController
 	before_action :authenticate_user!, only: %i[ new show search index]
 	def index
 		@links = Link.all
+		@tags = ActsAsTaggableOn::Tag.all.uniq
 	end
 
 	def new

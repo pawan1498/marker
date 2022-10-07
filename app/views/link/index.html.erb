@@ -1,130 +1,42 @@
-<div class="container col-xl-10 col-xxl-8 pt-1 px-4 pt-md-5 pt-4">
-    <div class="row align-items-center g-lg-5 home-hero">
-        <div class="col-lg-7 text-lg-start py-3 mb-5">
-            <h1 class="display-6 fw-bold lh-1 mb-4 pb-3 c-green">Bookmark With Style</h1>
-            <p class="col-lg-10 fs-5 text-secondary p-0">Presenting You a new way of bookmark and organsing your
-                links. Create a whole
-                library of links with tags.
-            </p>
-						<%= image_tag("hero2.png", :class => "img-fluid mt-4", :style => "width: 400px") %>	
-        </div>
+ <div class="container p-4 mt-md-4">
+        <div class="row">
+            <div class="col-12 col-lg-8">
+                <p class="h3 fw-bold mb-4 text-secondary">View Marks</p>
+                <form action=<%= result_path %> method="post" class="search-bar d-flex mb-4">
+                    <input type="text" id="search" name="query" class="w-100" placeholder="Search...">
+                    <button type="submit"><i class="fa-solid fa-search"></i></button>
+                </form>
 
-        <div class="col-md-10 col-lg-5 p-0">
-
-            <div class="tab-content">
-                <div class="tab-pane fade show active" id="tab-login">
-                    <form action="/users/sign_in" method="POST"
-                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="login-form">
-                        <div class="w-100 d-flex justify-content-between mb-3">
-                            <p class="h3 fw-light mb-4">Login</p>
-                            <p class="social-media d-flex">
-                                <a href="#"
-                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
-                                        class="fa fa-facebook"></span></a>
-                                <a href="#"
-                                    class="social-icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-twitter"></span></a>
-                            </p>
+                <%@links.each do |link|%>
+                <div class="mark-box p-3 tag-link mb-4 shadow-sm">
+                    <div class="row align-items-center">
+                        <div class="mark-thumb p-3 ms-2 mb-3 mb-lg-0 col-2">
+                            <i class="fa-solid fa-earth-asia"></i>
                         </div>
-
-                        <div class="float-wrap">
-                            <input type="email" id="email" name="email" required>
-                            <label>&nbsp;Email Address&nbsp;</label>
-                        </div>
-
-                        <div class="float-wrap">
-                            <input type="password" id="password" name="password" required>
-                            <label>&nbsp;Enter Password&nbsp;</label>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <div class="wrap d-flex align-items-center">
-                                <input type="checkbox" name="remember_me" id="remember_me" checked>
-                                <label for="remember_me" class="ms-2 text-secondary mb-0"><small>Remember
-                                        Me</small></label>
+                        <div class="col-lg-10 col-12 ">
+                               <a href=<%= link.url%>> <small class="text-secondary fst-italic mb-0"><%= link.url%></small></a>
+                                <br>
+                                <div class="small-tag">
+                                    <%link.tags.each do |tag|%>
+                                    <a href="#"><%= tag.name%></a>
+                                    <%end %>
+                                </div>
                             </div>
-                            <a href="#"><small>Forgot Password?</small></a>
-                        </div>
-                        <br>
-                        <input type="submit" value="login" class="btn b-green w-100 py-2"> <br> <br>
-                        <div class="d-flex ">
-                            <p class="text-center mb-0">Not a member?</p>
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a id="signin_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
-                                        onclick="change_form(this)" href="#tab-signup">Sign up</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
+                    </div>
                 </div>
-                <div class="tab-pane fade" id="tab-signup">
-                    <form action="#" method="POST"
-                        class="border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float" id="signup-form">
-                        <div class="w-100 d-flex justify-content-between mb-3">
-                            <p class="h3 fw-light mb-4">Sign Up</p>
-                            <p class="social-media d-flex">
-                                <a href="#"
-                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
-                                        class="fa fa-facebook"></span></a>
-                                <a href="#"
-                                    class="social-icon d-flex align-items-center justify-content-center"><span
-                                        class="fa fa-twitter"></span></a>
-                            </p>
-                        </div>
+                <%end%>
+              
+            <div class="col-lg-4 p-3 px-lg-5 py-3 mt-3">
+                <p class="h3 fw-bold mb-4 text-secondary bor-bottom pb-2">All Tags</p>
 
-                        <div class="float-wrap">
-                            <input type="email" id="s_email" name="s_email" required>
-                            <label>&nbsp;Email Address&nbsp;</label>
-                        </div>
-                        <div class="float-wrap">
-                            <input type="password" id="s_password" name="s_password" required>
-                            <label>&nbsp;Enter Password&nbsp;</label>
-                        </div>
-
-                        <div id="confirm_pass_inp" class="float-wrap">
-                            <input type="password" id="c_password" name="c_password" required>
-                            <label>&nbsp;Confirm Password&nbsp;</label>
-                        </div>
-
-                        <div class="d-flex justify-content-between">
-                            <div class="wrap d-flex align-items-center">
-                                <input type="checkbox" name="agree_policy" id="agree_policy" checked>
-                                <label for="agree_policy" class="ms-2 text-secondary">
-                                    <small>I accept the
-                                        <a href="#"><small>Terms of Use</small></a>
-                                        &
-                                        <a href="#"><small>Privacy Policy.</small></a>
-                                    </small>
-                                </label>
-                            </div>
-                        </div>
-                        <br>
-                        <input type="submit" value="Sign Up" class="btn b-green w-100 py-2"> <br> <br>
-                        <div class="d-flex ">
-                            <p class="text-center mb-0">Already a member?</p>
-                            <ul class="nav justify-content-center">
-                                <li class="nav-item">
-                                    <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
-                                        href="#tab-login" onclick="change_form(this)">Login</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </form>
+                <div class="b-gray rounded-10 py-3 shadow-sm">
+                    <ul class="ps-2">
+                        <% @tags.each do |tag|%>
+                            <li class="nav-link"><a href="#"><%= tag.name%></a></li>
+                        <%end%>
+                    </ul>
                 </div>
             </div>
         </div>
     </div>
-</div>
-<%# <script src="assets/server.js"></script> %>
-
-<script>
-    function change_form(obj) {
-        var form_type = $('#' + obj.id);
-        (form_type.attr('href') == '#signin_tab') ?
-            form_type.removeClass('active') :
-            form_type.removeClass('active');
-    }
-</script>
-
-
+    <script src="assets/server.js"></script>
