@@ -94,7 +94,8 @@
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
                                     <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
-                                        href="#tab-login" onclick="change_form(this)">Login</a>
+                                    onclick="change_form(this)" href= "<%= new_user_registration_path %>"   data-remote = "true" >Sign up</a>
+
                                 </li>
                             </ul>
                         </div>
@@ -105,7 +106,6 @@
         </div>
     </div>
 </div>
-<%# <script src="assets/server.js"></script> %>
 
 <script>
     function change_form(obj) {
