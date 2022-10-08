@@ -40,8 +40,12 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <%= notice %>
-    <%= alert %>
+    <div class="notie"><%= notice %></div>
+    <div class="alet"><%= alert %></div>
     <%= yield %>
   </body>
+  <script>
+  $('.notie').fadeOut(5000,'linear');
+  $('.alet').fadeOut(5000,'linear');
+  </script>
 </html>

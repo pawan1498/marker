@@ -13,3 +13,33 @@
  *= require_tree .
  *= require_self
  */
+
+
+ .alet{
+  background-color: red;
+  position: fixed;
+  /* left: 0; */
+  right: 50px;
+  z-index: 99999;
+  /* top: 12px; */
+  margin: auto;
+  /* max-width: 10%; */
+  margin-top: 13px;
+  margin-right: 21px;
+  padding-right: 56px;
+  padding: 13px;
+}
+.notie{
+  background-color: red;
+  position: fixed;
+  /* left: 0; */
+  right: 50px;
+  z-index: 99999;
+  /* top: 12px; */
+  margin: auto;
+  /* max-width: 10%; */
+  margin-top: 13px;
+  margin-right: 21px;
+  padding-right: 56px;
+  padding: 13px;
+}
