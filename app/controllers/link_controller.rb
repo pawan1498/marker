@@ -1,9 +1,14 @@
 class LinkController < ApplicationController
 	before_action :authenticate_user!, only: %i[ new show search index]
 	def index
-		@links = Link.all
-		@tags = ActsAsTaggableOn::Tag.all.uniq
-	end
+		@links = current_user.links
+		@tags=[]
+		@links.each do |link|
+			link.tags.each do |tag |
+				@tags << tag
+			end 
+		end 
+	end 
 
 	def new
 		@link = Link.new
@@ -29,9 +34,9 @@ class LinkController < ApplicationController
 		tag = []
 		tag = result_param.split(',')
 		@l = current_user.links.tagged_with(tag,  :any => true)
-		tag.each { |x|
-				@l = @l.tagged_with(x, :any => true)
-		}
+		# tag.each { |x|
+		# 		@l = @l.tagged_with(x, :any => true)
+		# }
 	end
 
 	def autocomplete
