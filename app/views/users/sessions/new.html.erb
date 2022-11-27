@@ -1,0 +1,119 @@
+<div class="container col-xl-10 col-xxl-8 pt-1 px-4 pt-md-5 pt-4">
+    <div class="row align-items-center g-lg-5 home-hero">
+        <div class="col-lg-7 text-lg-start py-3 mb-5">
+            <h1 class="display-6 fw-bold lh-1 mb-4 pb-3 c-green">Bookmark With Style</h1>
+            <p class="col-lg-10 fs-5 text-secondary p-0">Presenting You a new way of bookmark and organsing your
+                links. Create a whole
+                library of links with tags.
+            </p>
+            <%= image_tag("hero2.png", :class => "img-fluid mt-4", :style => "width: 400px") %>	
+        </div>
+
+        <div class="col-md-10 col-lg-5 p-0">
+
+            <div class="tab-content">
+                <div class="tab-pane fade show active" id="tab-login">
+                  <%= form_for(resource, as: resource_name,:html => {:class => 'border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float' , :id => 'login-form'}, url: session_path(resource_name)) do |f| %>
+
+                    <div class="w-100 d-flex justify-content-between mb-3"> 
+                        <p class="h3 fw-light mb-4">Login</p>
+                        <p class="social-media d-flex">
+                            <a href="#"
+                                class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                    class="fa fa-facebook"></span></a>
+                            <a href="#"
+                                class="social-icon d-flex align-items-center justify-content-center"><span
+                                    class="fa fa-twitter"></span></a>
+                        </p>
+                    </div>
+
+                    <div class="float-wrap">
+                      <%= f.email_field :email, :id => 'email' %>
+                      <%= f.label :Email_Address %><br />
+                    </div>
+
+                    <div class="float-wrap">
+                      <%= f.password_field :password%>
+                      <%= f.label :password %><br />
+                    </div>
+
+                    <% if devise_mapping.rememberable? %>
+                      <div class="d-flex justify-content-between">
+                        <div class="wrap d-flex align-items-center">
+                          <%= f.check_box :remember_me, id: "remember_me" %>
+                          <%= f.label :remember_me, class: "ms-2 text-secondary mb-0 font-s" %>
+                        </div>
+                        <a href="#"><small>Forgot Password?</small></a>
+                        <%# <small><%= link_to 'Forgot Password?', %></small>
+                        
+                      </div>
+                    <% end %>
+                    <br><br>
+                    <%= f.submit "Log in", class: "btn b-green w-100 py-2" %><br><br>
+                    <div class="d-flex ">
+                        <p class="text-center mb-0">Not a member?</p>
+                        <ul class="nav justify-content-center">
+                            <li class="nav-item">
+                                <a id="signin_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                    onclick="change_form(this)" href="#tab-signup">Sign up</a>
+                            </li>
+                        </ul>
+                    </div> 
+                  <% end %>
+                </div>
+                <div class="tab-pane fade" id="tab-signup">
+                     <%= form_for(resource, as: resource_name,:html => {:class => 'border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float' , :id => 'login-form'}, url: registration_path(resource_name)) do |f| %>
+                    <%# <form action="#" method="POST" %>
+                        <div class="w-100 d-flex justify-content-between mb-3">
+                            <p class="h3 fw-light mb-4">Sign Up</p>
+                            <p class="social-media d-flex">
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center me-2"><span
+                                        class="fa fa-facebook"></span></a>
+                                <a href="#"
+                                    class="social-icon d-flex align-items-center justify-content-center"><span
+                                        class="fa fa-twitter"></span></a>
+                            </p>
+                        </div>
+
+                        <div class="float-wrap">
+                            <%= f.email_field :email, :id => 'email' %>
+                            <%= f.label :Email_Address %><br />
+                        </div>
+
+                        <div class="float-wrap">
+                            <%= f.password_field :password%>
+                            <%= f.label :password %><br />	
+                        </div>
+
+                      
+                        <br>
+                            <%= f.submit "Sign Up", class: "btn b-green w-100 py-2" %><br><br>
+                        <div class="d-flex ">
+                            <p class="text-center mb-0">Already a member?</p>
+                            <ul class="nav justify-content-center">
+                                <li class="nav-item">
+                                    <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
+                                    onclick="change_form(this)" href= "<%= new_user_registration_path %>"   data-remote = "true" >Sign up</a>
+
+                                </li>
+                            </ul>
+                        </div>
+												
+                    <%end%>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function change_form(obj) {
+        var form_type = $('#' + obj.id);
+        (form_type.attr('href') == '#signin_tab') ?
+            form_type.removeClass('active') :
+            form_type.removeClass('active');
+    }
+</script>
+
+

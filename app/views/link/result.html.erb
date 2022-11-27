@@ -1,7 +1,23 @@
-<h1> for "<%= params[:query]%>" tags : links are </h1>
-<% @l.each do |link|%>
-<a href="<%= link.url%>"> <%= link.url%> </a>
-<br>
-<% end %>
-
+<div class="container">
+<p class="h3 fw-bold mb-4 mt-4 text-secondary">TAG:  <%= params[:query]%> </p>
+  <%@l.each do |link|%>
+    <div class="mark-box p-3 tag-link mb-4 shadow-sm">
+        <div class="row align-items-center">
+            <div class="mark-thumb p-3 ms-2 mb-3 mb-lg-0 col-2">
+                <i class="fa-solid fa-earth-asia"></i>
+            </div>
+            <div class="col-lg-10 col-12 ">
+                    <a href=<%= link.url%>> <small class="text-secondary fst-italic mb-0"><%= link.url%></small></a>
+                    <br>
+                    <div class="small-tag">
+                        <%link.tags.each do |tag|%>
+                        <a href="#"><%= tag.name%></a>
+                        <%end %>
+                    </div>
+                </div>
+        </div>
+    </div>
+  <%end%>
 <%= link_to "home", root_path %>
+</div>
+

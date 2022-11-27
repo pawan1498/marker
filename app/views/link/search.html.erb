@@ -1,13 +1,45 @@
-<%= render 'navbar' %>
+<%# <%= render 'navbar' %> %>
 
-<div class="container p-5 mt-5" style="width: 46%">
-  <h1 class="">SEARCH</h1>
-  <%= form_with url: "/result" , method: :get do |form| %>
-    <div class="mb-3">
-      <%= form.label :query, "Search for:" , class: "form-label" %>
-      <%= form.text_field :query, class: "form-control" %>
-    </div>
-    <%= form.submit "Search" , class: "btn btn-default btn-primary" %>
+<div class="container p-5 mt-5 d-flex justify-content-center" style="width: 46%">
+  <%= form_with url: "/result" , class: "form-inline",id: "tags-form",  method: :get, html: { autocomplete: "off" } do |form| %>
+    <%= form.label :query, "Name" , class: "sr-only" %>
+    <%= form.hidden_field :query, class: "form-control mb-2 mr-sm-2", id: "input_tags"  %>
+    <%= form.submit "Search" , class: "btn btn-default btn-primary mb-2" %>
   <% end %>
 
-</div>
+  <div id="myDropdown" class="dropdown-content">
+  <input type="text" placeholder="Search.." id="myInput"  >
+               
+  </div>
+</div> 
+
+<script>  
+ $(document).ready(function() {
+  $("#myInput").keyup(function() { 
+    input_data = $(this).val()
+    $.ajax({
+      type: "GET",
+      url: "/autocomplete",
+      data: {
+          text: input_data
+      },
+      success: function(result) {
+        console.log(result)
+        $("#myDropdown").empty();
+        $.each(result, function(index, value) {
+          d = document.createElement('li');
+          $(d).appendTo($("#myDropdown")).html(value).addClass("link_tags").click(function(){
+            console.log($("#input_tags").val($("#input_tags").val()+ ',' + value).val())
+          }) 
+        });
+      },
+    });
+  });
+
+  $('#tags-form').submit(function() {
+    $("#input_tags").val( $("#input_tags").val().slice(1));
+  });
+
+})
+    
+</script>

@@ -15,6 +15,15 @@ when you need again
  then enter submit button 
  ```
 
+### Search 
+```
+  Anyone can search their saved links by using tags.
+
+  1. Adding your tags in input field
+  2. `Hit enter`
+```
+  - Implementing auto search for tags 
+
 # act_as_taggable_on 
 - https://github.com/mbleigh/acts-as-taggable-on
 - https://www.youtube.com/watch?v=uBa2qs9CFZQ
@@ -24,3 +33,6 @@ when you need again
 
 # postgres setup 
 - https://www.digitalocean.com/community/tutorials/how-to-set-up-ruby-on-rails-with-postgres
+
+# Device confirmable 
+- https://web-crunch.com/posts/extending-devise-confirmation-emails  (YOUTUBE)
