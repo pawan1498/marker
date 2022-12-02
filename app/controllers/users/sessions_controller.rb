@@ -11,6 +11,7 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
+    after_sign_in_path_for(resource)
   end
 
   # DELETE /resource/sign_out

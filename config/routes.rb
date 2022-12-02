@@ -12,4 +12,9 @@ Rails.application.routes.draw do
   get '/search', to:"link#search"
   get 'result',to:"link#result"
   get '/autocomplete', to:"link#autocomplete"
+
+  namespace :admin do
+    resources :dashboard
+  end
+  
 end
