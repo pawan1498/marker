@@ -8,7 +8,7 @@
             <% if current_user.admin %>
                 <%= link_to "Dashboard", admin_dashboard_index_path, class: "btn btn-sucess"%>
             <% end %>
-            <%= link_to "log out", destroy_user_session_path ,class: "btn btn-success", method: :delete %>
+            <%= button_to "log out", destroy_user_session_path ,class: "btn btn-success", method: :delete %>
         <%end%>
     </div>
 
