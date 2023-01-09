@@ -1,6 +1,43 @@
-<ul>
-    <% @user.each do |user| %>
-      <li><%= user.email  %></li>
 
-    <% end %>
-</ul>
+<div class="container-fluid">
+  <nav aria-label="breadcrumb">
+    <ol class="breadcrumb">
+      <li class="breadcrumb-item"><a href="#">Admin</a></li>
+      <li class="breadcrumb-item active" aria-current="page">User</li>
+    </ol>
+  </nav>
+  <div class="">
+    <form action="" class="form-group">
+      <label class="sr-only" for="inlineFormInputName2">Name</label>
+      <div class="dflex justify_content_between ">
+        <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Name">
+        <button type="submit" class="btn btn-primary mb-2">Submit</button>
+      </div>
+    </form>
+  </div>
+
+  <table class="table table-striped mt-5">
+  <thead >
+    <tr class="border">
+      <th scope="col-8" class="border" >Name</th>
+      <th scope="col-4" class="border">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <%@user.each do |u|%>
+      <tr>
+        <td scope="row" class="border"><%=u.email.capitalize%></td>
+        <td>
+          <div class="d-flex">
+            <a href="#" class="mx-2 btn btn-info">Show</a>
+            <a href="#" class="mx-2 btn btn-info">Edit </a>
+            <a href="#" class="mx-2 btn btn-info">Deactivate</a>
+          </div>
+        </td>
+      </tr>
+    <%end%>
+  </tbody>
+</table>
+
+
+</div>
