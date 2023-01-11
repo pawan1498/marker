@@ -17,6 +17,7 @@ Rails.application.routes.draw do
     resources :dashboard do 
       collection do
         get :user
+        get :toggle_user
       end
     end 
   end

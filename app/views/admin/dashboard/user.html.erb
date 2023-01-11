@@ -7,13 +7,19 @@
     </ol>
   </nav>
   <div class="">
-    <form action="" class="form-group">
+    <%# <form action="/admin/dashboard/user" class="form-group">
       <label class="sr-only" for="inlineFormInputName2">Name</label>
       <div class="dflex justify_content_between ">
         <input type="text" class="form-control mb-2 mr-sm-2" id="inlineFormInputName2" placeholder="Search Name">
         <button type="submit" class="btn btn-primary mb-2">Submit</button>
       </div>
-    </form>
+    </form> %>
+
+
+    <%= form_tag "/admin/dashboard/user" , method: :get ,class: "form-control" do %>
+      <%= text_field_tag "name", params[:name],  placeholder: "Search User", :class => ""%>
+      <%= submit_tag "Create" , class: "btn btn-primary" %>
+    <% end %>
   </div>
 
   <table class="table table-striped mt-5">
@@ -26,12 +32,17 @@
   <tbody>
     <%@user.each do |u|%>
       <tr>
-        <td scope="row" class="border"><%=u.email.capitalize%></td>
+        <td scope="row" class="border align-middle"><%=u.email%></td>
         <td>
           <div class="d-flex">
             <a href="#" class="mx-2 btn btn-info">Show</a>
-            <a href="#" class="mx-2 btn btn-info">Edit </a>
-            <a href="#" class="mx-2 btn btn-info">Deactivate</a>
+            <% if u.active %>
+              <%=link_to "deactivate", toggle_user_admin_dashboard_index_path(user_id: u), method: :post, data: { confirm: "Are you sure?" }, class: "mx-2 btn btn-danger" %>
+              <%# <a href="#" class="mx-2 btn btn-danger">Deactivate</a> %>
+            <% else %>
+              <%=link_to "Activate", toggle_user_admin_dashboard_index_path(user_id: u), method: :post, data: { confirm: "Are you sure?" }, class: "mx-2 btn btn-success" %>
+              <%# <a href="#" class="mx-2 btn btn-success">Activate</a> %>
+            <%end%>
           </div>
         </td>
       </tr>

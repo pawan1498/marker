@@ -5,4 +5,17 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable, :confirmable
   has_many :links
+
+  scope :active, -> {where(active: true)}
+
+
+  def deactivate_account!
+    self.update(active: false)
+  end
+
+  def active_account!
+    self.update(active: true)
+
+  end
+
 end
