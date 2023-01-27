@@ -10,8 +10,11 @@
             <%@links.each do |link|%>
             <div class="mark-box p-3 tag-link mb-4 shadow-sm">
                 <div class="row align-items-center">
-                    <div class="mark-thumb p-3 ms-2 mb-3 mb-lg-0 col-2">
-                        <i class="fa-solid fa-earth-asia"></i>
+                    <div class="d-flex justify-content-between" >
+                        <div class="mark-thumb p-3 ms-2 mb-3 mb-lg-0 col-2">
+                            <i class="fa-solid fa-earth-asia"></i>
+                        </div>
+                        <button class="btn btn-sm btn-primary"><a href="<% edit_link_path(link)%>">Edit</a></button>
                     </div>
                     <div class="col-lg-10 col-12 ">
                             <a href=<%= link.url%>> <small class="text-secondary fst-italic mb-0"><%= link.url%></small></a>
