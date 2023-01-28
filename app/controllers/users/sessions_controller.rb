@@ -11,7 +11,9 @@ class Users::SessionsController < Devise::SessionsController
   # POST /resource/sign_in
   def create
     super
-    after_sign_in_path_for(resource)
+    if @user.admin?
+      admin_dashboard_index_path
+    end 
   end
 
   # DELETE /resource/sign_out
