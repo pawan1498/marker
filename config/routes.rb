@@ -5,7 +5,13 @@ Rails.application.routes.draw do
         confirmations: 'users/confirmations'
       }
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
-  root to: "link#index"
+  # root to: "users/sessions#new"
+
+  devise_scope :user do
+    get "/" => "users/sessions#new"
+  end
+  
+  get '/links', to: "link#index"
   get '/new', to: "link#new"
   post '/links',to:"link#create"
   get '/show' ,to: "link#show"

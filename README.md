@@ -36,3 +36,7 @@ when you need again
 
 # Device confirmable 
 - https://web-crunch.com/posts/extending-devise-confirmation-emails  (YOUTUBE)
+
+## Device after sign in 
+- devise give function `after_sign_in_path_for` this function should be written in application controller 
+  and give the path accordingly where you want to redirect after sign in.
