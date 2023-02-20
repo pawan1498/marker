@@ -1,3 +1,7 @@
 <%= @link.url%>
+</br>
+<% get_tag(@link).each do |tag|%>
+  <%= tag.name%>
+<%end%>
 <%= link_to "home" , links_path %>
 <%= link_to "search" , search_path %>
