@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   get '/links', to: "link#index"
   get '/new', to: "link#new"
   post '/links',to:"link#create"
-  get '/show' ,to: "link#show"
+  get '/link/:id' ,to: "link#show"
   get '/search', to:"link#search"
   get 'result',to:"link#result"
   get '/autocomplete', to:"link#autocomplete"
