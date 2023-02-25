@@ -7,7 +7,7 @@ class Admin::AdminController < ApplicationController
     if current_user.admin 
       return true
     else 
-      redirect_to root_path, alert: "You are not authorised!"
+      redirect_to links_path, alert: "You are not authorised!"
     end 
   end 
 end
