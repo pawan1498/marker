@@ -15,11 +15,9 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  def create
-    build_resource(sign_up_params)
-    @user.save
-    redirect_to root_path
-  end
+  # def create
+  #   super
+  # end
 
   # GET /resource/edit
   # def edit
