@@ -15,9 +15,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # POST /resource
-  # def create
-  #   super
-  # end
+  def create
+    super do |resource|
+      unless resource.errors.empty?
+        flash[:error] = resource.errors.full_messages.join(", ")
+        redirect_to "/" and return 
+      end
+    end
+  end
 
   # GET /resource/edit
   # def edit
@@ -56,9 +61,10 @@ class Users::RegistrationsController < Devise::RegistrationsController
   # end
 
   # The path used after sign up.
-  # def after_sign_up_path_for(resource)
-  #   super(resource)
-  # end
+  def after_sign_up_path_for(resource)
+    binding.pry 
+    super(resource)
+  end
 
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)

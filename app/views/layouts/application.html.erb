@@ -40,8 +40,18 @@
   <body>
     <%= render 'layouts/navbar' %>
 
-    <div class="notie"><%= notice %></div>
-    <div class="alet"><%= alert %></div>
+    <% if notice.present?%>
+      <div class="notie"><%= notice %></div>
+    <%end %>
+
+    <% if alert.present?%>
+      <div class="alet"><%= alert if alert %></div>  
+    <%end %>
+
+    <% if flash.present?%>
+      <div class="alet"><%= flash[:error] %></div>
+    <%end %>
+
     <%= yield %>
   </body>
   <script>
