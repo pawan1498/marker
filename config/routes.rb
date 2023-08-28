@@ -20,7 +20,11 @@ Rails.application.routes.draw do
   get '/autocomplete', to:"link#autocomplete"
 
   namespace :admin do
-    resources :dashboard
+    resources :dashboard do 
+      collection do
+        get :user
+      end
+    end 
   end
   
 end

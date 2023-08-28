@@ -1,5 +1,6 @@
 class LinkController < ApplicationController
 	before_action :authenticate_user!, only: %i[ new show search index]
+	before_action :redirect_admin 
 	def index
 		@links = current_user.links
 		@tags=[]
@@ -60,4 +61,10 @@ private
 	def result_param
 		params.require(:query)
 	end
+
+	def redirect_admin
+		if current_user.admin
+			redirect_to admin_dashboard_index_path
+		end 
+	end 
 end
