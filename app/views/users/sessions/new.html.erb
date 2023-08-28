@@ -61,6 +61,7 @@
                     </div> 
                   <% end %>
                 </div>
+                
                 <div class="tab-pane fade" id="tab-signup">
                      <%= form_for(resource, as: resource_name,:html => {:class => 'border rounded-10 shadow py-5 px-3 px-md-5 w-100 form-float' , :id => 'login-form'}, url: registration_path(resource_name)) do |f| %>
                     <%# <form action="#" method="POST" %>
@@ -94,7 +95,7 @@
                             <ul class="nav justify-content-center">
                                 <li class="nav-item">
                                     <a id="signup_tab" class="nav-link ms-2 p-0" data-bs-toggle="tab"
-                                    onclick="change_form(this)" href= "<%= new_user_registration_path %>"   data-remote = "true" >Sign up</a>
+                                    onclick="change_form(this)" href= "#tab-login"   data-remote = "true" >Log in</a>
 
                                 </li>
                             </ul>
