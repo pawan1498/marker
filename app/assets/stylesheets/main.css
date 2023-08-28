@@ -51,7 +51,8 @@ a {
 }
 
 #login-form {
-  min-height: 450px;
+  min-height: 400px;
+  max-width: 401px;
 }
 
 .home-hero h1 {
@@ -236,4 +237,12 @@ body {
   padding-top: 0.5rem;
   overflow-x: hidden;
   overflow-y: auto; /* Scrollable contents if viewport is shorter than content. */
+}
+
+.vertical-center {
+  min-height: 100%;  /* Fallback for browsers do NOT support vh unit */
+  min-height: calc(100vh - 61px); /* These two lines are counted as one :-)       */
+
+  display: flex;
+  align-items: center;
 }
